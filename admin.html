@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Admin | PERFUMESSNCE</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="admin-container">
+
+  <h2>Panel de Administración – PERFUMESSNCE</h2>
+
+  <!-- LOGIN -->
+  <div id="login">
+  <input type="email" id="adminEmail" placeholder="Correo administrador">
+  <input type="password" id="adminPassword" placeholder="Contraseña">
+  <button onclick="login()">Ingresar</button>
+</div>
+
+
+  <!-- PANEL -->
+  <div id="panel" style="display:none;">
+
+    <div class="panel-header">
+      <h3>Gestión de Productos</h3>
+      <button class="btn-primary" onclick="abrirModal()">+ Nuevo Perfume</button>
+      <button class="btn-danger" onclick="logout()">Salir</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Marca</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Estado</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="tablaProductos"></tbody>
+    </table>
+
+  </div>
+
+</div>
+
+<!-- MODAL NUEVO PERFUME -->
+<div class="modal" id="modalPerfume">
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h3>Nuevo Perfume</h3>
+      <span class="close" onclick="cerrarModal()">×</span>
+    </div>
+
+    <div class="modal-body">
+
+      <h4>Información Básica</h4>
+<select id="p_genero">
+  <option value="">Género *</option>
+  <option value="Hombre">Hombre</option>
+  <option value="Mujer">Mujer</option>
+  <option value="Unisex">Unisex</option>
+</select>
+
+      <div class="form-grid">
+        <input id="p_nombre" placeholder="Nombre del Perfume *">
+        <input id="p_marca" placeholder="Marca *">
+
+        <select id="p_tipo">
+          <option value="Árabe">Árabe</option>
+          <option value="Diseñador">Diseñador</option>
+        </select>
+
+        <input id="p_presentacion" type="number" placeholder="Presentación (ml)">
+        <input id="p_precio" type="number" placeholder="Precio *">
+        <input id="p_stock" type="number" placeholder="Stock *">
+      </div>
+
+      <input id="p_imagen" placeholder="URL de la imagen">
+
+      <textarea id="p_descripcion" placeholder="Descripción del perfume..."></textarea>
+
+      <h4>Notas Olfativas</h4>
+      <input id="p_salida" placeholder="Notas de Salida">
+      <input id="p_corazon" placeholder="Notas de Corazón">
+      <input id="p_fondo" placeholder="Notas de Fondo">
+
+      <h4>Detalles</h4>
+      <div class="form-grid">
+        <select id="p_uso">
+  <option value="">Tipo de Uso *</option>
+  <option value="Diario">Diario</option>
+  <option value="Elegante">Elegante</option>
+  <option value="Eventos">Eventos</option>
+  <option value="Eventos formales">Eventos formales</option>
+  <option value="Nocturno">Nocturno</option>
+  <option value="Oficina">Oficina</option>
+  <option value="Fiesta">Fiesta</option>
+  <option value="Citas">Citas</option>
+</select>
+
+        <input id="p_estilo" placeholder="Estilo">
+
+        <select id="p_familia">
+          <option>Oriental</option>
+          <option>Amaderada</option>
+          <option>Floral</option>
+        </select>
+      </div>
+
+      <label class="check">
+        <input type="checkbox" id="p_activo" checked>
+        Producto activo (visible en el catálogo)
+      </label>
+
+    </div>
+
+    <div class="modal-footer">
+      <button onclick="cerrarModal()">Cancelar</button>
+      <button class="btn-primary" onclick="crearPerfume()">Crear Perfume</button>
+    </div>
+
+  </div>
+</div>
+
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

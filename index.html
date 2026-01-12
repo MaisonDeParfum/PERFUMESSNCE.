@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PERFUMESSNCE</title>
+  <link rel="icon" type="image/png" href="img/perfume_icono.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- BOTÓN ADMIN DISCRETO -->
+<a href="admin.html" class="admin-secret">⚙</a>
+
+<header class="header">
+      <div class="header-title">
+    <img src="img/PERFUMESSNCE.jpeg" alt="PERFUMESSNCE">
+  <h1>PERFUMESSNCE</h1>
+</header>
+
+<main class="store">
+  <h2>Perfumes Disponibles</h2>
+
+  <!-- BARRA DE BÚSQUEDA -->
+  <div class="buscador">
+    <input 
+      type="text" 
+      id="busqueda"
+      placeholder="Buscar perfume o marca..."
+      onkeyup="filtrarPerfumes()"
+    >
+  </div>
+
+  <!-- CONTENEDOR FILTROS + CATÁLOGO -->
+  <div class="layout">
+
+    <!-- FILTROS -->
+    <aside class="filtros">
+
+      <!-- PRECIO -->
+      <div class="filtro-grupo">
+        <strong>Rango de Precio (S/)</strong>
+        <div class="rango">
+          <input type="number" id="precioMin" placeholder="Min" oninput="filtrarPerfumes()">
+          <input type="number" id="precioMax" placeholder="Max" oninput="filtrarPerfumes()">
+        </div>
+      </div>
+
+      <!-- PRESENTACIÓN -->
+      <div class="filtro-grupo">
+        <strong>Presentación (ml)</strong>
+        <div class="rango">
+          <input type="number" id="mlMin" placeholder="Min" oninput="filtrarPerfumes()">
+          <input type="number" id="mlMax" placeholder="Max" oninput="filtrarPerfumes()">
+        </div>
+      </div>
+
+      <!-- GÉNERO -->
+      <div class="filtro-grupo">
+        <strong>Género</strong>
+        <label><input type="checkbox" name="genero" value="Hombre" onchange="filtrarPerfumes()"> Hombre</label>
+        <label><input type="checkbox" name="genero" value="Mujer" onchange="filtrarPerfumes()"> Mujer</label>
+        <label><input type="checkbox" name="genero" value="Unisex" onchange="filtrarPerfumes()"> Unisex</label>
+      </div>
+
+      <!-- USO -->
+      <div class="filtro-grupo">
+        <strong>Uso</strong>
+        <label><input type="checkbox" name="uso" value="Diario" onchange="filtrarPerfumes()"> Diario</label>
+        <label><input type="checkbox" name="uso" value="Elegante" onchange="filtrarPerfumes()"> Elegante</label>
+        <label><input type="checkbox" name="uso" value="Eventos" onchange="filtrarPerfumes()"> Eventos</label>
+        <label><input type="checkbox" name="uso" value="Eventos formales" onchange="filtrarPerfumes()"> Eventos formales</label>
+        <label><input type="checkbox" name="uso" value="Nocturno" onchange="filtrarPerfumes()"> Nocturno</label>
+        <label><input type="checkbox" name="uso" value="Oficina" onchange="filtrarPerfumes()"> Oficina</label>
+        <label><input type="checkbox" name="uso" value="Fiesta" onchange="filtrarPerfumes()"> Fiesta</label>
+        <label><input type="checkbox" name="uso" value="Citas" onchange="filtrarPerfumes()"> Citas</label>
+
+      </div>
+
+    </aside>
+
+    <!-- CATÁLOGO -->
+    <section class="contenido">
+      <div id="catalogo" class="grid"></div>
+    </section>
+
+  </div>
+</main>
+
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>
